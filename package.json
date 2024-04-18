@@ -1,0 +1,31 @@
+{
+  "name": "reactjs-training",
+  "version": "1.0.0",
+  "description": "ReactJS training by Madhusudhan",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madhusudhan1060/ReactJS-Training.git"
+  },
+  "keywords": [
+    "madhusudhan"
+  ],
+  "author": "madhusudhan\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[3~M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madhusudhan1060/ReactJS-Training/issues"
+  },
+  "homepage": "https://github.com/madhusudhan1060/ReactJS-Training#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
