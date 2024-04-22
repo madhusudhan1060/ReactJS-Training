@@ -1,6 +1,7 @@
 import React from "react";
 import reactDOM from "react-dom/client";
 import logo from '/res-logo.jpeg';
+import styled from "styled-components";
 
 
 const Logo = () => {
@@ -17,14 +18,21 @@ const NavItems = () => {
     )
 }
 
+const HeaderWrapper = styled.div`
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+`
+
 const HeaderComponent = () => {
     return (
-        <div className='sticky-top bg-light'>
+        <HeaderWrapper>
             <div className='container-fluid px-5 d-flex justify-content-between align-items-center'>
                 <Logo />
                 <NavItems />
             </div>
-        </div>
+        </HeaderWrapper>
     )
 }
 
@@ -51,15 +59,6 @@ const Body = () => {
             </div>
             <div className="d-flex flex-wrap row">
                 <RestaurentCard resName="paradise" />
-                <RestaurentCard resName="KFC" />
-                <RestaurentCard resName="paradise" />
-                <RestaurentCard resName="KFC" />
-                <RestaurentCard resName="paradise" />
-                <RestaurentCard resName="KFC" />
-                <RestaurentCard resName="paradise" />
-                <RestaurentCard resName="KFC" />
-                <RestaurentCard resName="paradise" />
-                <RestaurentCard resName="KFC" />
             </div>
         </div>
     )
