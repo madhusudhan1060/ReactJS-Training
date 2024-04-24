@@ -1,9 +1,4 @@
-import React from "react";
-import reactDOM from "react-dom/client";
-import logo from '/res-logo.jpeg';
-import styled from "styled-components";
-
-const resObj =  [
+const resList =  [
     {
         "info": {
             "id": "11091",
@@ -1579,89 +1574,6 @@ const resObj =  [
         }
     }
 ]
-    
 
 
-const Button = styled.button`
-  /* Adapt the colors based on primary prop */
-  background: ${props => props.$primary ? "#BF4F74" : "white"};
-  color: ${props => props.$primary ? "white" : "#BF4F74"};
-
-  font-size: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid #BF4F74;
-  border-radius: 3px;
-`;
-
-const Logo = () => {
-    return <img src={logo} height="50"  alt="logo" />
-}
-
-const NavItems = () => {
-    return (
-        <ul className="d-flex list-unstyled mb-0">
-            <li className="px-3">Home</li>
-            <li className="px-3">About</li>
-            <li className="px-3">Profile</li>
-        </ul>
-    )
-}
-
-const HeaderComponent = () => {
-    return (
-        <div  className='d-flex justify-content-between align-items-center px-5'>
-            <Logo />
-            <NavItems />
-        </div>
-    )
-}
-
-const RestaurentCard = (props) => {
-    const { name, avgRating, areaName, cuisines, cloudinaryImageId } = props?.resData?.info;
-    return (
-        <div className="col-3 p-3 d-flex">
-            <div className="card border border-secondary border-opacity-10 shadow shadow-sm w-100">
-                <img className="rounded" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} width="100%" height="250" alt={name} />
-                <div className="px-3 py-2">
-                    <p className="text-truncate fw-bold mb-1">{name}</p>
-                    <p className="fw-semibold mb-0">{avgRating} stars</p>
-                    <p className="mb-1">{areaName}</p>
-                    <p className="mb-0 lh-1">{cuisines.join(", ")}</p>
-                </div>
-            </div>
-        </div>
-            )
-}
-
-const MainWrapper = () => {
-    return (
-        <div className="container-fluid px-5 mt-3 main-wrapper">
-            <div className="input-group mb-3">
-                <input type="text" className="form-control border border-secondary" placeholder="Search Restaurent" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                {/* <button className="btn btn-sm btn-secondary px-3" type="button">Search</button> */}
-                <Button type="button" className="btn btn-sm btn-secondary px-3">Search</Button>
-                {/* <Button $primary>Primary</Button> */}
-            </div>
-            <div className="d-flex flex-wrap row">
-                {
-                    resObj.map((res) => (
-                        <RestaurentCard resData = {res} />
-                    ))
-                }
-
-            </div>
-        </div>
-    )
-}
-
-const App = () => {
-    return  (
-        <div>
-            <HeaderComponent />
-            <MainWrapper />
-        </div>
-    )
-}
-
-const root = reactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+export default resList;
