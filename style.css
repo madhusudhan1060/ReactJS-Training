@@ -1,0 +1,7 @@
+.card-shimmer {
+    height: 300px;
+}
+
+.card-shimmer .card {
+    background-color: #ddd;
+}
