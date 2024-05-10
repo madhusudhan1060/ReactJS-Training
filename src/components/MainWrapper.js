@@ -17,17 +17,21 @@ const Button = styled.button`
 
 const MainWrapper = () => {    
     const [filteredRes, setFilteredRes] = useState([]);
+    const [searchRes, setSearchRes] = useState([]);
+
+    const [searchText, setSearchText] = useState("");
 
     useEffect(() =>{
         fetchData();
-        console.log("useEffect");
+        // console.log("useEffect");
     }, []);
 
     const fetchData = async () => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4107978&lng=78.341552&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        console.log(json);
-        // setFilteredRes(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        // console.log(json);
+        setFilteredRes(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        setSearchRes(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
         // setFilteredRes([]);
     }
 
@@ -47,8 +51,17 @@ const MainWrapper = () => {
     return (
         <div className="container-fluid px-5 mt-3 main-wrapper">
             <div className="input-group mb-3">
-                <input type="text" className="form-control border border-secondary" placeholder="Search Restaurent" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                <Button $primary type="button" className="btn btn-sm btn-secondary px-3">Search</Button>
+                <input type="text" value={searchText} onChange={(e) => setSearchText(e.target.value)} className="form-control border border-secondary" placeholder="Search Restaurent" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                <Button $primary type="button" 
+                    onClick={() => 
+                        {   
+                            let searchResult = searchRes.filter(res => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                            setFilteredRes(searchResult);
+                        }
+                    }
+                    className="btn btn-sm btn-secondary px-3">
+                    Search
+                </Button>
             </div>
             <Button type="button" className="btn btn-sm" onClick={handleClick}>High Rated Restaurent</Button>
             <div className="d-flex flex-wrap row">
