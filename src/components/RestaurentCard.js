@@ -1,7 +1,7 @@
 const RestaurentCard = (props) => {
     const { name, avgRating, areaName, cuisines, cloudinaryImageId } = props?.resData?.info;
     return (
-        <div className="col-3 p-3 d-flex">
+        <div className="w-100 px-3 mb-3 d-flex">
             <div className="card border border-secondary border-opacity-10 shadow shadow-sm w-100">
                 <img className="rounded" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} width="100%" height="250" alt={name} />
                 <div className="px-3 py-2">

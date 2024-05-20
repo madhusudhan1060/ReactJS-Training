@@ -1,6 +1,4 @@
-import React from 'react'
-
-function Shimmer() {
+const Shimmer = () => {
   return (
     <>
         <div className="col-3 p-3 d-flex card-shimmer" style={{height: "300px"}}>
@@ -37,4 +35,4 @@ function Shimmer() {
   )
 }
 
-export default Shimmer
+export default Shimmer;

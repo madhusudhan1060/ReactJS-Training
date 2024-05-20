@@ -1,6 +1,7 @@
 const About = () => {
     return (
-        <div>Wlcome to about page</div>
+        <div className="container-fluid px-5 mt-3 main-wrapper">
+            Welcome to about page</div>
     )
 }
 
