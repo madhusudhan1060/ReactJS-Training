@@ -47,32 +47,34 @@ const MainWrapper = () => {
     //     return <h1>Loading....</h1>
     // }
 
-    // let searchResult = [];
-    // const handleBtnRestarauntClick = () => {
-    //     searchResult = searchRes.filter(res => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-    //     setFilteredRes(searchResult);
-    // }
+    let searchResult = [];
+    const handleBtnRestarauntClick = () => {
+        searchResult = searchRes.filter(res => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+        setFilteredRes(searchResult);
+    }
 
-    // const searchRestaurent = (e) => {
-    //     const searchText = e.target.value;
-    //     setSearchText(searchText);
-    //     if(searchText.trim() === '') {setFilteredRes(searchRes)}
-    // }
+    const searchRestaurent = (e) => {
+        const searchText = e.target.value;
+        setSearchText(searchText);
+        if(searchText.trim() === '') {setFilteredRes(searchRes)}
+    }
     
     return (
         <div className="container-fluid px-5 mt-3 main-wrapper">
             <div className="d-flex mb-3">
                 <div className="input-group">
-                    <input type="text" value={searchText} onChange={(e) => {
-                        setSearchText(e.target.value);
-                        }
+                    <input type="text" value={searchText} onChange={ searchRestaurent
+                        // (e) => {
+                        //     setSearchText(e.target.value);
+                        // }
                     }
                         className="form-control border border-secondary" placeholder="Search Restaurent" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                    <Button $primary type="button" onClick={()=> {
-                        const searchResult = searchRes.filter(res => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
-                        setFilteredRes(searchResult);
-                    }
-                        
+                    <Button $primary type="button" 
+                    onClick={ handleBtnRestarauntClick
+                        // ()=> {
+                        //     const searchResult = searchRes.filter(res => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+                        //     setFilteredRes(searchResult);
+                        // }  
                     }
                         className="btn btn-sm btn-secondary px-3">
                         Search
@@ -83,7 +85,7 @@ const MainWrapper = () => {
             <div className="d-flex flex-wrap row overflow-auto restaurants-wrapper mt-4">
                 {
                     (filteredRes.length === 0) ? <Shimmer /> : filteredRes.map((res) => (
-                        <Link className="col-3 px-3 mb-3 d-flex text-decoration-none" to={"/restaurents/"+ res.info.id} key={res.info.id}>
+                        <Link className="col-3 mb-3 d-flex text-decoration-none" to={"/restaurents/"+ res.info.id} key={res.info.id}>
                             <RestaurentCard resData = {res} />
                         </Link>
                     ))
